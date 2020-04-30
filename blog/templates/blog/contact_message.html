@@ -1,0 +1,50 @@
+{% load static %}
+
+เรียน {{ position|safe }} {{ organization|safe }} ณ. {{ places|safe }}
+
+ข้อมูลคนสูญหาย จาก ระบบสนับสนุนการป้องกันและค้นหาคนหาย
+
+รายละเอียดของคุณ {{ realname }} มีดังนี้
+
+เปิดดูข้อมูลคนหายของผู้บันทึกข้อมูลได้ที่
+https://findingpersonsystem.herokuapp.com/userpost/{{ authorname }}
+
+ชื่อ - นามสกุล : {{ realname }}
+
+ชื่อเล่น : {{ nickname }}
+
+ชื่อ -นามสกลุ(อังกฤษ) : {{ realnameEng }}
+
+เพศ : {{ gender }}
+
+อายุ : {{ age }}
+
+เชื้อชาติ : {{ nationality }}
+
+วันที่หาย : {{ lostday }}
+
+เวลาที่หาย : {{ lostTime }}
+
+สถานที่ที่หาย : {{ lostWhere }}
+
+เหตุผลที่หาย : {{ lostReason }}
+
+อัตลักษณ์ : {{ identities }}
+
+รายละเอียดเพิ่มเติม : {{ content }}
+
+
+สามารถติดต่อกลับได้ทางอีเมล์นี้:
+
+{{ fromEmail }}
+
+
+
+
+
+ขอให้เจอคนหายโดยเร็ว
+
+ผู้บันทึกข้อมูล : {{ authorname }}
+
+แอดมินจากระบบสนับสนุนการป้องกันและค้นหาคนหาย : Admin
+

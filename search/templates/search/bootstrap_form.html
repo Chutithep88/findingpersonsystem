@@ -1,0 +1,78 @@
+{% extends "blog/baseSearch.html" %}
+{% load static %}
+{% block content %}
+
+<br><br><br>
+      <center><h3>ค้นหาข้อมูลจากเบาะแสแจ้งคนหาย</h3></center>
+      <br><br>
+      <form method="GET" action="{% url 'resultNew' %}">
+            <div class="row">
+              <div class="form-group col-md-4">
+                <label for="category">เพศ</label>
+                <select id="category" class="form-control" name="category">
+                  <option selected>Choose...</option>
+                  {% for cat in categories %}
+                  <option value="{{ cat }}">{{ cat }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+
+                <div class="form-group col-md-4">
+                  <label for="category">ช่วงอายุ</label>
+                  <select id="category" class="form-control" name="ages">
+                    <option selected>Choose...</option>
+                    {% for cat in age %}
+                    <option value="{{ cat }}">{{ cat }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+
+                <div class="form-group col-md-4">
+                  <label for="category">ลักษณะพิเศษ</label>
+                  <div class="input-group">
+                      <input class="form-control py-2 border-right-0 border" type="search" name="title_contains" placeholder="Title contains..." />
+                      <span class="input-group-append">
+                          <div class="input-group-text bg-transparent">
+                              <i class="fa fa-search"></i>
+                          </div>
+                      </span>
+                  </div>
+                </div>        
+
+                
+            </div>
+          
+          <center><button type="submit" class="btn btn-primary">Search</button></center>
+      </form>
+        
+        
+    
+    <br>
+    <!-- <ul>
+    {% for post in queryset %}
+        <article class="media content-section">
+            <div class="media-body">
+                <div class="article-metadata">
+                    <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+                </div>
+                {% if post.image %}
+                  <img src="{{ post.image.url }}" alt="{{ post.image }}" class="img-thumbnail">
+                {% else %}
+                  <img src="{% static 'blog/lost1.png' %}" class="img-thumbnail">
+                {% endif %}
+                <h2><a class="article-title" href="{% url 'postfree-detail' post.id %}">{{ post.title }}</a></h2>
+                {% if post.identities %}
+                  <p class="article-content">{{ post.identities|slice:":150" }}</p>
+                  <p class="article-content">{{ post.content|slice:":150" }}</p>
+                {% elif post.content %}
+                  <p class="article-content">{{ post.content|slice:":150" }}</p>
+                {% else %}
+                  <p>ผู้โพสข้อมูลไม่มีการใส่ข้อมูลเพิ่มเติมลงไป</p>
+                {% endif %}
+                <a href="{% url 'postfree-detail' post.id  %}" class="btn btn-info">อ่านเพิ่มเติม &rarr;</a>
+            </div>
+        </article>
+    {% endfor %}
+    </ul> -->
+    <br>
+{% endblock content %}

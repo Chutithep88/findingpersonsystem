@@ -1,0 +1,9 @@
+{% extends "blog/baseLogin.html" %}
+{% block content %}
+    <h2>คุณได้ออกจากระบบแล้ว</h2>
+    <div class="border-top pt-3">
+        <small class="text-muted">
+            <a href="{% url 'login' %}">ล็อกอินเข้าสู่ระบบอีกครั้ง</a>
+        </small>
+    </div>
+{% endblock content %}

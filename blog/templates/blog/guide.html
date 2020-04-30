@@ -1,0 +1,151 @@
+{% extends "blog/baseGuide.html" %}
+{% load static %}
+{% block content2 %}
+<div class="position-static">
+    <div class="content-section">
+        <br>
+        <center><p><b>คู่มือการใช้งานในระบบเบื้องต้น</b></p></center>
+        <p><a href="#topic1" class="btn btn-outline-dark btn-block">วิธีการแจ้งเบาะแส</a></p>
+        <p><a href="#topic2" class="btn btn-outline-dark btn-block">ส่วนของแสดงข้อมูลหน้าแรก</a></p>
+        <p><a href="#topic3" class="btn btn-outline-dark btn-block">หน้าล็อกอินและสมัครสมาชิก</a></p>
+        <p><a href="#topic4" class="btn btn-outline-dark btn-block">หน้าแสดงผลเมื่อล็อกอินเข้าสู่ระบบได้แล้ว</a></p>
+        <p><a href="#topic5" class="btn btn-outline-dark btn-block">แสดงปุ่มย่อยการเพิ่มข้อมูลคนหาย</a></p>
+        <p><a href="#topic6" class="btn btn-outline-dark btn-block">แสดงหน้าค้นหาข้อมูล</a></p>
+        <p><a href="#topic7" class="btn btn-outline-dark btn-block">แสดงหน้าติดต่อ</a></p>
+        <p><a href="#topic8" class="btn btn-outline-dark btn-block">แสดงหน้าโปรไฟล์</a></p>
+        <p><a href="#topic9" class="btn btn-outline-dark btn-block">ตัวอย่างข้อมูลที่บันทึกในระบบ</a></p>
+    </div>
+  </div>
+{% endblock content2 %}
+{% block content %}
+    <a name="topic1"></a>
+    <h1><b>วิธีการแจ้งเบาะแส</b></h1>
+    <img src="{% static 'blog/11.png' %}" alt="หน้าแจ้งคนหาย" class="img-thumbnail">
+    <br><br>
+    <P>กด1.จะเข้าไปสู่หน้าแจ้งเบาะแส</P>
+    <P><strong>*ถ้าต้องการแจ้งบุคคลสูญหาย , บุคคลผู้มีความเสี่ยงจะหาย ต้องสมัครสมาชิกเข้าสู่ระบบเสียก่อน</strong></P>
+    <br>
+    <center><p><a href="#top" class="btn btn-outline-primary">กลับสู่ด้านบน</a></p></center>
+    <hr>
+
+    <br>
+    <a name="topic2"></a>
+    <h1><b>ส่วนของแสดงข้อมูลหน้าแรก</b></h1>
+    <img src="{% static 'blog/12.png' %}" alt="หน้าแรก" class="img-thumbnail">
+    <br><br>
+    <p>เลข1.การแสดงคนหายล่าสุด</p>
+    <p>เลข2.แสดงคนเสี่ยงจะสูญหายล่าสุด</p>
+    <p>เลข3.กดจะเข้าสู่หน้าอ่านข้อมูลเพิ่มเติม</p>
+    <br>
+    <center><p><a href="#top" class="btn btn-outline-primary">กลับสู่ด้านบน</a></p></center>
+    <hr>
+
+    <br>
+    <a name="topic3"></a>
+    <h1><b>หน้าล็อกอินและสมัครสมาชิก</b></h1>
+    <img src="{% static 'blog/17.png' %}" alt="ล็อกอิน"class="img-thumbnail">
+    <br><br>
+    <p>เลข1.สมัครสมาชิกหรือล็อกอินปกติ</p>
+    <p>เลข2.ล็อกอินfacebook</p>
+    <p>เลข3.ล็อกอินgoogle</p>
+    <br>
+    <center><p><a href="#top" class="btn btn-outline-primary">กลับสู่ด้านบน</a></p></center>
+    <hr>
+
+    <br>
+    <a name="topic4"></a>
+    <h1><b>หน้าแสดงผลเมื่อล็อกอินเข้าสู่ระบบได้แล้ว</b></h1>
+    <img src="{% static 'blog/13.png' %}" alt="ล็อกอินเมื่อเข้าสู่ระบบ"class="img-thumbnail">
+    <br><br>
+    <p>เลข1.จะเพิ่มข้อมูลแจ้งเบาะแสคนหายเข้ามา</p>
+    <p>เลข2.จะเพิ่มการค้นหาข้อมูลคนหาย</p>
+    <p>เลข3.จะเพิ่มการติดต่อกับเจ้าหน้าที่หรือกับผู้ดูแลระบบ</p>
+    <p>เลข4.จะเพิ่มการเพิ่มข้อมูลคนหายเข้ามา</p>
+    <p>เลข5.แสดงusernameของผู้ใช้งานระบบและสามารถกดเข้าไปแก้ไขข้อมูลได้</p>
+    <p>เลข6.กดปุ่มเพื่อออกจากระบบ</p>
+    <br>
+    <center><p><a href="#top" class="btn btn-outline-primary">กลับสู่ด้านบน</a></p></center>
+    <hr>
+
+    <br>
+    <a name="topic5"></a>
+    <h1><b>แสดงปุ่มย่อยการเพิ่มข้อมูลคนหาย</b></h1>
+    <img src="{% static 'blog/14.png' %}" alt="เพิ่มข้อมูล"class="img-thumbnail">
+    <br><br>
+    <p>เลข1.จะเข้าไปหน้าเพิ่มข้อมูลผู้สูญหาย</p>
+    <p>เลข2.จะเข้าไปหน้าเพิ่มข้อมูลผู้สูญหายแบบส่งemailให้สื่อ</p>
+    <p>เลข3.จะเข้าไปหน้าเพิ่มข้อมูลผู้มีความเสี่ยงจะหาย</p>
+    <p>เลข4.จะเข้าไปหน้าเพิ่มข้อมูลองค์กร</p>
+    <br>
+    <center><p><a href="#top" class="btn btn-outline-primary">กลับสู่ด้านบน</a></p></center>
+    <hr>
+
+    <br>
+    <a name="topic6"></a>
+    <h1><b>แสดงหน้าค้นหาข้อมูล</b></h1>
+    <img src="{% static 'blog/15.png' %}" alt="หน้าแสดงการค้นหาข้อมูล"class="img-thumbnail">
+    <br><br>
+    <p>เลข1.กดเลือกเพศ</p>
+    <p>เลข2.กดเลือกช่วงอายุ</p>
+    <p>เลข3.พิมลักษณะพิเศษ,จุดสังเกตุ,จุดเด่น</p>
+    <p>กดปุ่มเพื่อค้นหา</p>
+    <br>
+    <center><p><a href="#top" class="btn btn-outline-primary">กลับสู่ด้านบน</a></p></center>
+    <hr>
+
+    <br>
+    <a name="topic7"></a>
+    <h1><b>แสดงหน้าติดต่อ</b></h1>
+    <img src="{% static 'blog/16.png' %}" alt="หน้าติดต่อ" class="img-thumbnail">
+    <br><br>
+    <p>เลข1.ใส่emailของเรา</p>
+    <p>เลข2.ใส่หัวข้อ</p>
+    <p>เลข3.ใส่ข้อความ</p>
+    <p>กดปุ่มส่ง</p>
+    <br>
+    <center><p><a href="#top" class="btn btn-outline-primary">กลับสู่ด้านบน</a></p></center>
+    <hr>
+
+    <br>
+    <a name="topic8"></a>
+    <h1><b>แสดงหน้าโปรไฟล์</b></h1>
+    <img src="{% static 'blog/18.png' %}" alt="หน้าโปรไฟล์" class="img-thumbnail">
+    <br><br>
+    <p>เลข1.หน้าแก้ไขช้อมูลส่วนตัวของuser</p>
+    <p>เลข2.ดูข้อมูลผู้สูญหายที่ตนเองบันทึก</p>
+    <p>เลข3.ดูข้อมูลผู้มีความเสี่ยงจะหายที่ตนเองบันทึก</p>
+    <p>เลข4.ดูข้อมูลผู้สูญหายที่พบเจอตัวแล้วที่ตนเองบันทึก</p>
+    <br>
+    <center><p><a href="#top" class="btn btn-outline-primary">กลับสู่ด้านบน</a></p></center>
+    <hr>
+
+    <br>
+    <a name="topic9"></a>
+    <h1><b>ตัวอย่างของข้อมูลที่บันทึกในระบบ</b></h1>
+    <small>ตัวอย่างเหล่านี้นำมาใช้เพื่อเป็นตัวอย่างเท่านั้น</small>
+    <br><br>
+
+    <h3>หน้าแสดงข้อมูลเบาะแส</h3>
+    <img src="{% static 'blog/a1.png' %}" alt="a1" class="img-thumbnail">
+    <img src="{% static 'blog/a2.png' %}" alt="a2" class="img-thumbnail">
+    <br><br>
+    <h3>หน้าแสดง ข้อมูลคนหายที่บันทึกลงละบบเอง</h3>
+    <img src="{% static 'blog/b1.png' %}" alt="b1" class="img-thumbnail">
+    <br><br>
+    <h3>หน้าแสดงข้อมูลคนหาย</h3>
+    <img src="{% static 'blog/c1.png' %}" alt="c1" class="img-thumbnail">
+    <img src="{% static 'blog/b2.png' %}" alt="b2" class="img-thumbnail">
+    <br><br>
+    <h3>หน้าข้อมูลผู้มีความเสี่ยงจะหาย สามารถ อัพเดทว่าหายได้</h3>
+    <img src="{% static 'blog/e2.png' %}" alt="e2" class="img-thumbnail">
+    <img src="{% static 'blog/e1.png' %}" alt="e1" class="img-thumbnail">
+    <br><br>
+    <h3>หน้าแสดงข้อมูลพบเจอแล้ว และ รายละเอียดภายใน สามารถลบข้อมูลหรืออัพเดทได้</h3>
+    <img src="{% static 'blog/d1.png' %}" alt="d1" class="img-thumbnail">
+    <img src="{% static 'blog/c2.png' %}" alt="c2" class="img-thumbnail">
+    <br>
+    <br>
+    <center><p><a href="#top" class="btn btn-outline-primary">กลับสู่ด้านบน</a></p></center>
+    <hr>
+
+{% endblock content %}

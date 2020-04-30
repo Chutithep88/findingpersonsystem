@@ -1,0 +1,28 @@
+{% extends "blog/baseLogin.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">สมัครสมาชิก</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info btn-block" type="submit">สมัคร</button>
+            </div>
+        </form>
+        <legend class="border-bottom mb-4">ล็อกอินผ่าน Social Account</legend>
+        {% load socialaccount %}
+        <a href="{% provider_login_url 'google' %}" class="btn btn-danger btn-block">
+            <i class="fa fa-google"></i>
+            <b>Login with Google</b>
+        </a>
+        <hr>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Already Have An Account? <a class="ml-2" href="{% url 'login' %}">ล็อกอิน</a>
+            </small>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ขอบคุณสำหรับการแจ้งเบาะแสในระบบ</title>
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    <center><img src="{% static 'blog/thanks.png' %}" class="img-fluid" alt="Responsive image"></center>
+    <br>
+    <center><h1>ขอบคุณสำหรับการแจ้งเบาะแสในระบบสนับสนุนการป้องกันและค้นหาคนหาย</h1></center>
+    <br>
+    <center><a class="btn btn-success" href="{% url 'index' %}">กลับสู่เว็บไซต์</a></center>
+    <br>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% extends "blog/baseLogin.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">แน่ใจแล้วเหรอว่าจะลบข้อมูล?</legend>
+                <h2>จะลบข้อมูล "{{ object.realname }}" จริงๆใช่ไหม</h2>
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-danger" type="submit">ใช่ ลบเลย</button>
+                <a class="btn btn-outline-secondary" href="{% url 'post-detail' object.id %}">ยกเลิก</a>
+            </div>
+        </form>
+    </div>
+{% endblock content %}

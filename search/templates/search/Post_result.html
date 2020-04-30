@@ -1,0 +1,43 @@
+{% extends "blog/baseSearch.html" %}
+{% load static %}
+{% block content %}
+    <center><h1>ผลลัพธ์ของการค้นหา</h1></center>
+    <br>
+    <ul>
+    {% for post in object_list %}
+        <article class="media content-section ">
+          <img class="rounded-circle article-img" src="{{ post.author.profile.image.url }}">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
+              <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+            </div>
+            {% if post.image %}
+              <img src="{{ post.image.url }}" alt="{{ post.image }}" class="img-fluid">
+            {% else %}
+              <img src="{% static 'blog/lost1.png' %}" class="img-fluid">
+            {% endif %}
+            <br><br>
+            <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.realname }}</a></h2>
+            <br>
+            {% if post.gender %}
+              <p class="article-content">เพศ : {{ post.gender }}</p>
+              <p class="article-content">อายุ : {{ post.age }}</p>
+              {% if post.identities %}
+                <p class="article-content">ลักษณะพิเศษ : {{ post.identities|slice:":200" }}</p>
+              {% else %}
+                <p>รายละเอียดเพิ่มเติม : ผู้โพสข้อมูลไม่มีการใส่ข้อมูลรายละเอียดเพิ่มเติมลงไป</p>
+              {% endif %}
+            {% else %}
+              <p>ผู้โพสข้อมูลไม่มีการใส่ข้อมูลลักษณะพิเศษลงไป</p>
+            {% endif %}
+            <br>
+            <a href="{% url 'post-detail' post.id  %}" class="btn btn-info">อ่านเพิ่มเติม &rarr;</a>
+            <br><br>
+          </div>
+        </article>
+    {% endfor %}
+    </ul>
+    <center><a href="{% url 'searchPost' %}" class="btn btn-primary">กลับหน้าค้นหา</a></center>
+    <br>
+{% endblock content %}

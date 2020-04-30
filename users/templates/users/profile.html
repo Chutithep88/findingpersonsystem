@@ -1,0 +1,47 @@
+{% extends "blog/baseProfile.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+      <div class="media">
+        <img class="rounded-circle account-img" src="{{ user.profile.image.url }}">
+        <div class="media-body">
+          <h2 class="account-heading">{{ user.username }}</h2>
+          <p class="text-secondary">{{ user.email }}</p>
+        </div>
+      </div>
+      <form method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          <fieldset class="form-group">
+              <legend class="border-bottom mb-4">ข้อมูลโปรไฟล์</legend>
+              {{ u_form|crispy }}
+              {{ p_form|crispy }}
+          </fieldset>
+          <div class="form-group">
+              <button class="btn btn-outline-info" type="submit">อัพเดท</button>
+          </div>
+      </form>
+      
+
+    <div class="border-top pt-3">
+      </div>
+        <div class="row">
+              <!-- Add from here -->
+          {% for ass in backends.associated %}
+            {% if ass.provider == 'facebook' %}
+            <div class="col-sm-12 mb-3">
+              <h4 class="text-center"><b>ส่วนของข้อมูลล็อกอินผ่าน Facebook</b></h4>
+            </div>
+              <div class="col-md-6 text-center">
+                  <img src="{{ass.extra_data.picture.data.url}}" alt="" width="150" height="150" style="border-radius: 50%">
+              </div>
+              <div class="col-md-6 social-container my-2">                 
+                  <p> Signed in via:  {{ ass.provider }} </p>
+                  <p> Name:  {{ ass.extra_data.name }} </p>
+                  <p> Provider url: <a href="{{ass.extra_data.profile_url}}">link</a></p>
+              </div>
+            {% endif %}
+          {% endfor %}
+              <!-- End here -->
+        </div>
+      </div>
+{% endblock content %}

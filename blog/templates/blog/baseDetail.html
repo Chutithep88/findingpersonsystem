@@ -1,0 +1,186 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/mainDetail.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    {% if title %}
+        <title>ระบบสนับสนุนและค้นหาคนหาย - {{ title }}</title>
+    {% else %}
+        <title>ระบบสนับสนุนและค้นหาคนหาย</title>
+    {% endif %}
+</head>
+<body>
+  <div class="container">
+    <header class="site-header">
+      <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div class="container">
+          <a class="navbar-brand mr-4" href="{% url 'index' %}"><i class="fa fa-home"></i></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarToggle">
+            <div class="navbar-nav mr-auto">
+              <div class="dropdown show">
+                <a href="" class="nav-item nav-link" role="button" id="dropdownMenuLink" 
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  ดูข้อมูลในระบบ
+                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                  <a class="dropdown-item" href="{% url 'blog-home' %}">ข้อมูลผู้สูญหาย</a>
+                  <a class="dropdown-item" href="{% url 'searchPost' %}">ค้นหาข้อมูลผู้สูญหาย</a>
+                  <a class="dropdown-item" href="{% url 'showorganization' %}">ข้อมูลหน่วยงานที่เกี่ยวข้อง</a>
+                  <a class="dropdown-item" href="{% url 'blog-homeFound' %}">ข้อมูลผู้ที่พบเจอแล้ว</a>
+                  {% if user.is_authenticated %}
+                    <a class="dropdown-item" href="{% url 'blog-homefree' %}">ข้อมูลแจ้งเบาะแส</a>
+                  {% endif %}
+                  
+                </div>
+              </div>
+              <a class="nav-item nav-link" href="{% url 'guide' %}">คู่มือการใช้งานระบบ</a>
+
+              {% if user.is_authenticated %}
+                <a class="nav-item nav-link" href="{% url 'searchNew' %}">ค้นหาข้อมูลเบาะแส</a>
+                <a class="nav-item nav-link" href="{% url 'email' %}">ติดต่อ</a>
+              {% endif %}
+              
+              <!-- <a class="nav-item nav-link" href="{% url 'blog-about' %}">เกี่ยวกับเรา</a> -->
+            </div>
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav">
+              {% if user.is_authenticated %}
+                <div class="dropdown show">
+                  <a href="" class="btn btn-danger dropdown-toggle" role="button" id="dropdownMenuLink" 
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    เพิ่มข้อมูล
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="{% url 'post-create' %}">เพิ่มข้อมูลผู้สูญหาย</a>
+                    <a class="dropdown-item" href="{% url 'post-mail2' %}">เพิ่มข้อมูลผู้สูญหาย(แบบส่งEmailให้สื่อ)</a>
+                    <a class="dropdown-item" href="{% url 'post-createRisk' %}">เพิ่มข้อมูลผู้มีความเสี่ยงจะหาย</a>
+                    <a class="dropdown-item" href="{% url 'post-mail' %}">เพิ่มข้อมูลองค์กร(สำหรับผู้เพิ่มข้อมูลผู้สูญหายแบบส่งEmailให้สื่อ)</a>
+                  </div>
+                </div>
+                <!-- <a class="nav-item nav-link" href="{% url 'profile' %}">คุณ {{ user.username }}</a> -->
+
+                <div class="dropdown show">
+                  <a href="" class="nav-item nav-link" role="button" id="dropdownMenuLink" 
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    คุณ {{ user.username }}
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                    <a class="dropdown-item" href="{% url 'profile' %}">แก้ไขข้อมูลส่วนตัว</a>
+                    {% if user.is_active and user.is_superuser %}
+                      <a class="dropdown-item" href="https://findingpersonsystem.herokuapp.com/admin/" target="_blank">เข้าหน้าการจัดการAdmin</a>
+                    {% endif %}
+                    <a class="dropdown-item" href="https://findingpersonsystem.herokuapp.com/userpost/{{ user.username }}">ดูข้อมูลผู้สูญหาย(ที่บันทึกลงระบบเอง)</a>
+                    <a class="dropdown-item" href="https://findingpersonsystem.herokuapp.com/userRiskpost/{{ user.username }}">ดูข้อมูลผู้มีความเสี่ยงจะหาย(ที่บันทึกลงระบบเอง)</a>
+                    <a class="dropdown-item" href="https://findingpersonsystem.herokuapp.com/userFound/{{ user.username }}">ดูข้อมูลผู้สูญหายที่พบเจอตัวแล้ว(ที่บันทึกลงระบบเอง)</a>
+                    
+                  </div>
+                </div>
+                {% if user.is_active and user.is_staff %}
+                <div class="dropdown show">
+                  <a href="" class="nav-item nav-link" role="button" id="dropdownMenuLink" 
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    โหลดรายงาน
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                      <a class="dropdown-item" href="{% url 'export_excelPost' %}">โหลดรายงานผู้สูญหาย</a>
+                      <a class="dropdown-item" href="{% url 'export_excelPostFree' %}">โหลดรายงานเบาะแสในระบบ</a>
+                      <a class="dropdown-item" href="{% url 'export_excelPostFound' %}">โหลดรายงานผู้สูญหายที่ถูกพบ</a>
+                  </div>
+                </div>
+                {% endif %}
+                
+
+                <!-- Modal -->
+                <a class="nav-item nav-link" href="" data-toggle="modal" data-target="#exampleModal">ออกจากระบบ</a>
+              {% else %}
+                <a class="nav-item nav-link" href="{% url 'login' %}">ล็อกอิน</a>
+                <a class="nav-item nav-link" href="{% url 'register' %}">สมัครสมาชิก</a>
+              {% endif %}
+            </div>
+            
+          </div>
+        </div>
+      </nav>
+
+    </header>
+  </div>
+
+     <!--Modal-->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">ต้องการออกจากระบบหรือไม่</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          คุณกำลังจะออกจากระบบ ต้องการออกจากระบบหรือไม่?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">ปิด</button>
+          <a class="btn btn-primary" href="{% url 'logout' %}">ออกจากระบบ</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+    <main role="main" class="container">
+      <div class="row">
+        <div class="col-md-3">
+        </div>
+  
+        <div class="col-md-6">
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tags }}">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+        </div>
+  
+        <div class="col-md-3">
+        </div>
+
+      </div>
+    </main>
+
+
+    <main role="main" class="container">
+        <div class="row">
+          <div class="col-md-2">
+          </div>
+
+          <div class="col-md-8">
+            {% block content %}
+            {% endblock %}
+          </div>
+
+          <div class="col-md-2">
+          </div>
+        </div>
+    </main>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

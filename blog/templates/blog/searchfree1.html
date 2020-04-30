@@ -1,0 +1,13 @@
+{% extends "blog/baseSearch.html" %}
+{% load static %}
+{% block content %}
+    <center><h1>คำแนะนำ</h1></center>
+    <br>
+    <h3>เมื่อต้องการค้นอะไร ใส่ ลักษณะพิเศษที่ต้องการแล้วค้นหาเลย</h3>
+    <br>
+    <form action="{% url 'resultsearch-page' %}" method="get">
+        <input class="form-control" name="q" id="myInput" type="text" placeholder="ค้นหาข้อมูล">
+        <br>
+        <center><button type="submit" class="btn btn-primary">ค้นหา</button></center>
+    </form>
+{% endblock content %}

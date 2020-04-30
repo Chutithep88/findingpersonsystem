@@ -1,0 +1,33 @@
+{% extends "blog/baseSearch.html" %}
+{% load static %}
+{% block content %}
+
+<br><br><br>
+     <center><h3>ค้นหาข้อมูลผู้สูญหาย</h3></center>
+     <br><br>
+      <form method="GET" action="{% url 'resultPost' %}">
+            <div class="row">
+
+                <div class="form-group col">
+                  <label for="category">ชื่อจริงของผู้สูญหาย</label>
+                  <div class="input-group">
+                      <input class="form-control py-2 border-right-0 border" type="search" name="q" placeholder="กรอกชื่อผู้สูญหาย..." />
+                      <span class="input-group-append">
+                          <div class="input-group-text bg-transparent">
+                              <i class="fa fa-search"></i>
+                          </div>
+                      </span>
+                  </div>
+                </div>        
+
+                
+            </div>
+          
+          <center><button type="submit" class="btn btn-primary">Search</button></center>
+      </form>
+        
+        
+    
+    <br>
+    <br>
+{% endblock content %}

@@ -1,0 +1,47 @@
+{% extends "blog/baseDetail.html" %}
+{% load static %}
+{% block content %}
+  <article class="media content-section">
+    <div class="media-body">
+      <div class="article-metadata">
+        <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
+      </div>
+      {% if object.image %}
+        <h3>รูปทั่วไป</h3>
+        <img src="{{ object.image.url }}" alt="{{ object.image }}" class="img-fluid">
+        {% if object.image2 %}
+          <h3>รูปรุนแรงที่ไม่แสดงให้เห็นจากด้านนอก</h3>
+          <img src="{{ object.image2.url }}" alt="{{ object.image2 }}" class="img-fluid">
+        {% endif  %}
+      {% elif object.image2 %}
+        <h3>รูปรุนแรงที่ไม่แสดงให้เห็นจากด้านนอก</h3>
+        <img src="{{ object.image2.url }}" alt="{{ object.image2 }}" class="img-fluid">
+      {% else %}
+        <img src="{% static 'blog/lost1.png' %}" class="img-fluid">
+      {% endif %}
+      <br>
+      <br>
+      <h4><font color='black'><b>หัวเรื่อง</b></font> : {{ object.title }} </h4>
+      <br>
+      {% for object in object.gender.all %}
+        <h4><font color='black'><b>เพศ</b></font> : {{ object.name }}</h4>
+      {% endfor %}
+      <br>
+      {% for object in object.age.all %}
+        <h4><font color='black'><b>อายุ</b></font> : {{ object.name }}</h4>
+      {% endfor %}
+      <br>
+      <h4><font color='black'><b>ลักษณะพิเศษ</b></font> : {{ object.identities }}</h4>
+      <br>
+      <h4><font color='black'><b>สถานที่</b></font> : {{ object.where }} </h4>
+      <br>
+      <h4><font color='black'><b>รายละเอียดเพิ่มเติม</b></font> : {{ object.content }} </h4>
+      <br>
+      <h4><font color='black'><b>อีเมล์</b></font> : {{ object.email }}</h4>
+      <br>
+      <h4><font color='black'><b>เบอร์โทรศัพท์</b></font> : {{ object.telephone }}</h4>
+      <br>
+      <center><a href="{% url 'blog-homefree' %}" class="btn btn-info">ย้อนกลับ</a></center>
+    </div>
+  </article>
+{% endblock content %}
